@@ -20,9 +20,13 @@ export class BookListComponent implements OnInit {
       this.bookService.deleteBooks(id)
   }
 
-  updateBook(givenBook: Book){
-    this.bookService.setBookToBeUpdated(givenBook);
+  updateBook(givenBook: Book, index:number){
+    this.bookService.setBookToBeUpdated(givenBook,index);
     this.router.navigate(['updateBook'])
+  }
+
+  addBook(){
+    this.router.navigate(['addBook'])
   }
 
 

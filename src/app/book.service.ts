@@ -19,6 +19,7 @@ export class BookService {
     { id: 10, name: 'Typescript Programming', year: 2015, availability: true },
   ];
   bookToBeUpdated = new Book();
+  bookToBeUpdatedIndex: any = 0;
   constructor() {}
 
   getBooks(): Book[] {
@@ -29,11 +30,21 @@ export class BookService {
     this.books.splice(id - 1, 1);
   }
 
-  setBookToBeUpdated(givenBook: Book){
+  setBookToBeUpdated(givenBook: Book, index:number){
     this.bookToBeUpdated = givenBook;
+    this.bookToBeUpdatedIndex = index;
   }
-
+  
+  updateBook(givenBook:Book)
+  {
+    this.books.splice(this.bookToBeUpdatedIndex,1,givenBook);
+  }
   getBookToBeUpdated(): Book{
     return this.bookToBeUpdated;
+  }
+
+  addBook(newBook:Book){
+    newBook.id=this.books.length;
+    this.books.push(newBook);
   }
 }
