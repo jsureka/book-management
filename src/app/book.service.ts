@@ -45,6 +45,7 @@ export class BookService {
 
   addBook(newBook:Book){
     newBook.id=this.books.length;
+    console.log(newBook);
     this.books.push(newBook);
   }
 }
